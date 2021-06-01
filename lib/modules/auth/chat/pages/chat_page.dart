@@ -37,7 +37,7 @@ class _ChatPageState extends State<ChatPage> {
     super.initState();
     echo.channel('UserChannel').listen('.UserEvent', (e) {
       print(e);
-      final json = e['status'] as Map<String, dynamic>;
+      final json = e['data'] as Map<String, dynamic>;
       final messageModel = MessageModel.fromJson(json);
       if (messageModel.user != LoginModel.userName)
         _handleRecieveMessage(messageModel);
